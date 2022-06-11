@@ -1,3 +1,4 @@
+/*
 8 kyu
 If you can't sleep, just count sheep!!
 JavaScript:
@@ -664,6 +665,7 @@ const stringToNumber = function(str){
   
   return Number(str);
 }
+
 22 days agoRefactorDiscuss
 7 kyu
 No oddities here
@@ -1365,3 +1367,5 @@ function even_or_odd(number) {
   }
 
   console.log(even_or_odd(0));
+  
+  */
