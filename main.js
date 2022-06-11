@@ -1365,5 +1365,3 @@ function even_or_odd(number) {
   }
 
   console.log(even_or_odd(0));
-10 months agoRefactorDiscuss
-© 2022 CodewarsAboutAPIBlogPrivacyTerms
