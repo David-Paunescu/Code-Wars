@@ -1,4 +1,253 @@
 /*
+7 kyu
+Number of People in the Bus
+JavaScript:
+var number = function (busStops) {
+  let count = 0;
+  busStops.map(a => count += a[0] - a[1]);
+  return count
+}
+1 minute agoRefactorDiscuss
+7 kyu
+Beginner Series #3 Sum of Numbers
+JavaScript:
+function getSum(a,b){
+  let count = 0;
+  if (a == b) return a;
+  if(a < b){
+    for (; a <= b; a++){
+      count += a;
+    }
+  } else if (a > b){
+      for(; b <= a; b++){
+        count += b;
+      }
+  }
+  return count;
+}
+yesterdayRefactorDiscuss
+7 kyu
+Credit Card Mask
+JavaScript:
+function maskify(cc) {
+  let firstSlice = cc.slice(0,-4).split("");
+  let secondSlice = cc.slice(-4);
+  let hide = firstSlice.map(x=>x="#").join("");
+  return hide + secondSlice;
+}
+2 days agoRefactorDiscuss
+function maskify(cc) {
+  let arr = cc.split('');
+  let ccSlice = cc.slice(0,-4)
+  let last4 = cc.slice(-4)
+  console.log(last4);
+  let arr1 = ccSlice.split("");
+  let arrHidden = arr1.map(x=>x="#")
+  console.log(arrHidden.join("") + last4);
+  return arrHidden.join("") + last4
+}
+2 days agoRefactor
+7 kyu
+Exes and Ohs
+JavaScript:
+function XO(str) {
+  let numX = 0;
+  let numO = 0;
+  let arr = str.toLowerCase().split("");
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === "x") {
+        numX++
+      } else if(arr[i] === "o"){
+        numO++
+      }
+  }
+  return numX === numO;
+}
+3 days agoRefactorDiscuss
+7 kyu
+Consecutive Vowels in a String
+JavaScript:
+function getTheVowels(word) {
+  let arrOfVowels = ["a", "e", "i", "o", "u"];
+  let sum = 0;
+  let arr = word.split('');
+  for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === arrOfVowels[0]){
+        sum++
+        arrOfVowels.shift()
+      }
+      if (arrOfVowels.length === 0) {
+        arrOfVowels = ['a','e','i','o','u'];
+    }
+    }
+  return sum;
+}
+3 days agoRefactorDiscuss
+7 kyu
+Pairs of integers from 0 to n
+JavaScript:
+function generatePairs(n) {
+  let arr = [];
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j <= n; j++) {
+        j>=i? arr.push([i,j]) : null; 
+    }
+  }
+  return arr
+}
+4 days agoRefactorDiscuss
+7 kyu
+sPoNgEbOb MeMe
+JavaScript:
+function spongeMeme(sentence) {
+  let arr = sentence.toLowerCase().split('')
+  for (let i = 0; i < arr.length; i+=2) {
+    arr[i] = arr[i].toUpperCase(); 
+  }
+  return arr.join('')
+}
+4 days agoRefactorDiscuss
+7 kyu
+Two to One
+JavaScript:
+function longest(s1, s2) {
+  let final = []
+  let arr = s1.concat(s2).split('').sort()
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] !== arr[i+1]){
+      final.push(arr[i])
+    }
+  }  
+  return final.join('')
+}
+4 days agoRefactorDiscuss
+7 kyu
+Sum of two lowest positive integers
+JavaScript:
+function sumTwoSmallestNumbers(numbers) {  
+  const numSort = numbers.sort((a,b)=> a-b);
+  return numSort[0] + numSort[1]
+}
+4 days agoRefactorDiscuss
+7 kyu
+Shortest Word
+JavaScript:
+function findShort(s){
+  return s.split(' ').reduce((a,b)=> a.length < b.length? a : b).length
+}
+4 days agoRefactorDiscuss
+8 kyu
+Can we divide it?
+JavaScript:
+function isDivideBy(number, a, b) {
+  return number % a === 0 && number % b === 0;
+}
+4 days agoRefactorDiscuss
+8 kyu
+Sum Mixed Array
+JavaScript:
+function sumMix(x){
+  let allNum = x.map(x=> Number(x))
+  return allNum.reduce((a, b)=> a+b)
+}
+4 days agoRefactorDiscuss
+6 kyu
+Sum of Digits / Digital Root
+JavaScript:
+function digital_root(n){
+    let result = 0;
+    String(n).split('').map(num => {
+      result += Number(num);
+    });
+    return result > 9 ? digital_root(result) : result;
+  }
+6 days agoRefactorDiscuss
+8 kyu
+Count by X
+JavaScript:
+function countBy(x, n) {
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(x*i)  
+  }
+  return z;
+}
+6 days agoRefactorDiscuss
+8 kyu
+Sentence Smash
+JavaScript:
+function smash (words) {
+  return words.join(' ')
+};
+6 days agoRefactorDiscuss
+8 kyu
+Do I get a bonus?
+JavaScript:
+function bonusTime(salary, bonus) {
+  return bonus? "\u00A3" + salary*10 : "\u00A3" + salary;
+}
+6 days agoRefactorDiscuss
+7 kyu
+Fizz Buzz
+JavaScript:
+const fizzbuzz = (n) => {
+  const returnedArr = [];
+  for (let i = 1; i <= n; i++) {
+    let str = "";
+    if (i % 3 === 0) str += "Fizz";
+    if (i % 5 === 0) str += "Buzz";
+    if (str.length === 0) returnedArr.push(i);
+    else returnedArr.push(str);
+  };
+  return returnedArr;
+};
+9 days agoRefactor
+7 kyu
+Isograms
+JavaScript:
+function isIsogram(str){
+   str = str.toLowerCase();
+   for(i = 0; i < str.length; i++) {
+     for(j = i + 1; j < str.length; j++) {
+       if(str[i] === str[j]) {
+         return false;
+       }
+     }
+   }
+   return true;
+}
+10 days agoRefactorDiscuss
+7 kyu
+List Filtering
+JavaScript:
+function filter_list(l) {
+  return l.filter(x=> typeof(x) === "number");
+}
+10 days agoRefactorDiscuss
+7 kyu
+You're a square!
+JavaScript:
+var isSquare = function(n){
+  return Math.sqrt(n) === Math.round(Math.sqrt(n))
+}
+10 days agoRefactorDiscuss
+6 kyu
+Stop gninnipS My sdroW!
+JavaScript:
+function spinWords(string){
+  let final = []
+  let arr = string.split(' ')
+  for (let i = 0; i < arr.length; i++) {
+    const el = arr[i];
+    if(arr[i].length >4) {
+      final.push(arr[i].split('').reverse().join(''))
+    } else {
+      final.push(arr[i])
+    }
+  }
+  return final.join(' ')
+}
+10 days agoRefactorDiscuss
 8 kyu
 If you can't sleep, just count sheep!!
 JavaScript:
@@ -12,7 +261,7 @@ var countSheep = function (num){
 }
   return arr.join('');
 }
-1 hour agoRefactorDiscuss
+11 days agoRefactorDiscuss
 8 kyu
 Count the Monkeys!
 JavaScript:
@@ -23,11 +272,11 @@ function monkeyCount(n) {
     }
     return arr;
   }
-1 hour agoRefactorDiscuss
+11 days agoRefactorDiscuss
 BetaImplement isObjectEmpty function
 JavaScript:
 const isObjectEmpty = (obj) => Object.keys(obj).length === 0;
-2 hours agoRefactorDiscuss
+11 days agoRefactorDiscuss
 8 kyu
 Sum without highest and lowest number
 JavaScript:
@@ -40,7 +289,7 @@ function sumArray(array)  {
 
     return 0
 }
-4 hours agoRefactorDiscuss
+11 days agoRefactorDiscuss
 7 kyu
 Get the Middle Character
 JavaScript:
@@ -50,7 +299,7 @@ function getMiddle(s) {
   const extract2 = s.slice(strLength / 2 - 1, strLength / 2 + 1)
   return strLength % 2 === 0 ? extract2 : extract1
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 7 kyu
 Square Every Digit
 JavaScript:
@@ -58,7 +307,7 @@ function squareDigits(num){
   const arr = Array.from(String(num), Number);
   return Number(arr.map(x=>x*x).join(''))
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Find Maximum and Minimum Values of a List
 JavaScript:
@@ -69,57 +318,57 @@ var min = function(list){
 var max = function(list){
   return Math.max(...list);
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Sum Arrays
 JavaScript:
 function sum (numbers) {
   return numbers.reduce((a, b) => a + b, 0);
 };
-yesterdayRefactor
+12 days agoRefactor
 function sum (numbers) {
   return numbers === [] ? 0 : numbers.reduce((a, b)=> a+b, 0);
 };
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Simple multiplication
 JavaScript:
 function simpleMultiplication(number) {
     return number % 2 === 0 ? number * 8 : number * 9
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Are You Playing Banjo?
 JavaScript:
 function areYouPlayingBanjo(name) {
   return name[0] === "r" || name[0] === "R" ? name + " plays banjo" : name + " does not play banjo";
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 MakeUpperCase
 JavaScript:
 function makeUpperCase(str) {
   return str.toUpperCase()
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Beginner - Reduce but Grow
 JavaScript:
 function grow(x){
   return x.reduce((a,b) => a*b)
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Opposites Attract
 JavaScript:
 function lovefunc(flower1, flower2){
    return flower1 % 2 !== flower2 % 2;
 }
-yesterdayRefactor
+12 days agoRefactor
 function lovefunc(flower1, flower2){
   return flower1 % 2 === 0 && flower2 % 2 !== 0 || flower1 % 2 !== 0 && flower2 % 2 === 0;
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 How good are you really?
 JavaScript:
@@ -128,7 +377,7 @@ function betterThanAverage(classPoints, yourPoints) {
    const classAverage = sum / classPoints.length
    return yourPoints > classAverage ? true : false;
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Beginner Series #1 School Paperwork
 JavaScript:
@@ -139,14 +388,14 @@ function paperwork(n, m) {
     return n*m;
   }
 }
-yesterdayRefactorDiscuss
+12 days agoRefactorDiscuss
 8 kyu
 Reversed Words
 JavaScript:
 function reverseWords(str){
   return str.split(' ').reverse().join(' ')
 }
-2 days agoRefactorDiscuss
+13 days agoRefactorDiscuss
 8 kyu
 Calculate average
 JavaScript:
@@ -157,7 +406,7 @@ function find_average(array) {
   }
   return a / array.length;
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 8 kyu
 Function 1 - hello world
 JavaScript:
@@ -166,7 +415,7 @@ JavaScript:
 function greet() {
   return 'hello world!'
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 8 kyu
 Beginner Series #2 Clock
 JavaScript:
@@ -174,14 +423,14 @@ function past(h, m, s){
   const ms = (3600000 * h) + (60000 * m) + (1000 * s)
   return ms
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 8 kyu
 Returning Strings
 JavaScript:
 function greet(name){
   return `Hello, ${name} how are you doing today?`
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 8 kyu
 A Needle in the Haystack
 JavaScript:
@@ -192,7 +441,7 @@ function findNeedle(haystack) {
     }
   }
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 7 kyu
 Mumbling
 JavaScript:
@@ -205,7 +454,7 @@ function accum(s) {
 
   return words.join('-');
 }
-3 days agoRefactorDiscuss
+14 days agoRefactorDiscuss
 6 kyu
 Find the odd int
 JavaScript:
@@ -223,33 +472,33 @@ function findOdd(A) {
     }
   }
 }
-5 days agoRefactorDiscuss
+16 days agoRefactorDiscuss
 7 kyu
 Descending Order
 JavaScript:
 function descendingOrder(n){
   return Number(String(n).split('').sort((a, b)=> b-a).join(''))
 }
-5 days agoRefactor
+16 days agoRefactor
 function descendingOrder(n){
   let nString = String(n);
   return Number(nString.split('').sort((a, b)=> b-a).join(''))
 }
-5 days agoRefactorDiscuss
+16 days agoRefactorDiscuss
 8 kyu
 Double Char
 JavaScript:
 function doubleChar(str) {
   return str.split('').map(x=>x+x).join('')
 }
-5 days agoRefactorDiscuss
+16 days agoRefactorDiscuss
 7 kyu
 Disemvowel Trolls
 JavaScript:
 function disemvowel(str) {
   return str.replace(/[aeiou]/gi, '');
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 7 kyu
 Highest and Lowest
 JavaScript:
@@ -257,42 +506,42 @@ function highAndLow(numbers){
   let splitNum = numbers.split(' ');
   return Math.max(...splitNum) +" "+ Math.min(...splitNum);
 }
-6 days agoRefactor
+17 days agoRefactor
 function highAndLow(numbers){
  let splitNum = numbers.split(' ')
  let maxN = Math.max(...splitNum)
  let minN = Math.min(...splitNum)
    return maxN +" "+ minN;
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 8 kyu
 Keep Hydrated!
 JavaScript:
 function litres(time) {
   return Math.floor(time/2);
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 8 kyu
 Invert values
 JavaScript:
 function invert(array) {
   return array.map(x=> -x);
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 8 kyu
 You only need one - Beginner
 JavaScript:
 function check(a, x) {
   return a.includes(x)
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 8 kyu
 Fake Binary
 JavaScript:
 function fakeBin(x){
   return x.split('').map(a=>a<5 ? "0" : "1").join('')
 }
-6 days agoRefactor
+17 days agoRefactor
 function fakeBin(x){
   let splitStr = x.split('');
   let newArr = [];
@@ -307,7 +556,7 @@ function fakeBin(x){
   
   return newArr.join('')
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 function fakeBin(x){
   let splitStr = x.split('');
   console.log(splitStr);
@@ -323,25 +572,25 @@ function fakeBin(x){
   
   return newArr.join('')
 }
-6 days agoRefactorDiscuss
+17 days agoRefactorDiscuss
 8 kyu
 Abbreviate a Two Word Name
 JavaScript:
 function abbrevName(name){
   return (name[0] +"."+ name[name.indexOf(' ')+1]).toUpperCase()
 }
-7 days agoRefactor
+18 days agoRefactor
 function abbrevName(name){ 
   return (name[0] +"."+ name[name.indexOf(' ')+1]).toUpperCase()
 }
-7 days agoRefactor
+18 days agoRefactor
 function abbrevName(name){
   let arr = name.split('')
   let arrFind = arr.indexOf(' ')
   arr.splice(1, arrFind)
   return arr.slice(0,2).join('.').toUpperCase()
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Square(n) Sum
 JavaScript:
@@ -350,7 +599,7 @@ function squareSum(numbers){
     return (y*y) + x;
   }, 0)
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 function squareSum(numbers){
   let arr = [];
   let final = 0;
@@ -361,21 +610,21 @@ function squareSum(numbers){
   }
   return final;
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Convert boolean values to strings 'Yes' or 'No'.
 JavaScript:
 function boolToWord( bool ){
   return bool? 'Yes' : 'No'
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Opposite number
 JavaScript:
 function opposite(n) {
   return -n;
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Reversed sequence
 JavaScript:
@@ -386,18 +635,18 @@ const reverseSeq = n => {
   }
   return arr;
 };
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Function 2 - squaring an argument
 JavaScript:
 function square(x) {
   return x*x;
 }
-7 days agoRefactor
+18 days agoRefactor
 function square(params) {
   return Math.pow(params, 2)
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Determine offspring sex based on genes XX and XY chromosomes
 JavaScript:
@@ -405,14 +654,14 @@ function chromosomeCheck(sperm) {
   return sperm === "XX" ? "Congratulations! You're going to have a daughter." : "Congratulations! You're going to have a son."
 }
 
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Plural
 JavaScript:
 function plural(n) {
  return n !== 1
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Convert number to reversed array of digits
 JavaScript:
@@ -424,14 +673,14 @@ function digitize(n) {
   let final = nRev.map(x=> Number(x))
   return final;
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Is the string uppercase?
 JavaScript:
 String.prototype.isUpperCase = function(str) {
   return this == this.toUpperCase();
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 FIXME: Replace all dots
 JavaScript:
@@ -440,7 +689,7 @@ var replaceDots = function(str) {
   let joinStr = splitStr.join('-')
   return joinStr;
 }
-7 days agoRefactorDiscuss
+18 days agoRefactorDiscuss
 8 kyu
 Name Shuffler
 JavaScript:
@@ -450,7 +699,7 @@ function nameShuffler(str){
   let joinStr = revStr.join(" ")
   return joinStr;
 }
-8 days agoRefactorDiscuss
+19 days agoRefactorDiscuss
 8 kyu
 Removing Elements
 JavaScript:
@@ -460,7 +709,7 @@ function removeEveryOther(arr) {
   });
   return filtered
 }
-8 days agoRefactorDiscuss
+19 days agoRefactorDiscuss
 8 kyu
 Counting sheep...
 JavaScript:
@@ -474,7 +723,7 @@ function countSheeps(arrayOfSheep) {
 }
   return sum;
 }
-17 days agoRefactorDiscuss
+28 days agoRefactorDiscuss
 
 function countSheeps(arrayOfSheep) {
         let sum=0;
@@ -486,7 +735,7 @@ function countSheeps(arrayOfSheep) {
         }
   return sum;
       }
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 8 kyu
 Reversed Strings
 JavaScript:
@@ -497,7 +746,7 @@ function solution(str) {
  }
 
 solution('world');
-17 days agoRefactorDiscuss
+28 days agoRefactorDiscuss
 function solution(str){
   
   let splitString = str.split('');
@@ -509,7 +758,7 @@ function solution(str){
 }
 
 solution('world')
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 8 kyu
 I love you, a little , a lot, passionately ... not at all
 JavaScript:
@@ -528,7 +777,7 @@ function howMuchILoveYou(nbPetals) {
     return "not at all"
   }   
 }
-17 days agoRefactorDiscuss
+28 days agoRefactorDiscuss
 8 kyu
 Count of positives / sum of negatives
 JavaScript:
@@ -547,7 +796,7 @@ function countPositivesSumNegatives(input) {
     }
     return array;
 }
-20 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 To square(root) or not to square(root)
 JavaScript:
@@ -565,7 +814,7 @@ function squareOrSquareRoot(array) {
   }
   return newArr;  
 }
-20 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Sum of differences in array
 JavaScript:
@@ -579,7 +828,7 @@ function sumOfDifferences(arr) {
   
   return sum;
 }
-21 days agoRefactor
+last monthRefactor
 function sumOfDifferences(arr) {
   return arr
     .sort((a, b) => b - a)
@@ -591,7 +840,7 @@ function sumOfDifferences(arr) {
       return acc;
     }, 0);
 }
-21 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Define a card suit
 JavaScript:
@@ -606,14 +855,14 @@ function defineSuit(card) {
         return "spades" 
         }
 }
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Convert a Boolean to a String
 JavaScript:
 function booleanToString(b){
   return String(b)
 }
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 What is between?
 JavaScript:
@@ -626,7 +875,7 @@ function between(a, b) {
 }
 
 console.log(between(1,4));
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 7 kyu
 Get the integers between two numbers
 JavaScript:
@@ -641,7 +890,7 @@ function range(startNum, endNum)
 
 console.log(range(2,9));
   
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Volume of a Cuboid
 JavaScript:
@@ -650,14 +899,14 @@ class Kata {
     return length * width * height;
   }
 }
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Convert a Number to a String!
 JavaScript:
 function numberToString(num) {
   return String(num)
 }
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 8 kyu
 Convert a String to a Number!
 JavaScript:
@@ -665,15 +914,14 @@ const stringToNumber = function(str){
   
   return Number(str);
 }
-
-22 days agoRefactorDiscuss
+last monthRefactorDiscuss
 7 kyu
 No oddities here
 JavaScript:
 function noOdds( values ){
     return values.filter(x => x % 2 === 0)
   }
-last monthRefactor
+2 months agoRefactor
 function noOdds( values ){
     let newArr = [];
     for (let i = 0; i < values.length; i++) {
@@ -684,7 +932,7 @@ function noOdds( values ){
     }
     return newArr;
   }
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 8 kyu
 Find the first non-consecutive number
 JavaScript:
@@ -700,14 +948,14 @@ function firstNonConsecutive (arr) {
 }
 
 console.log(firstNonConsecutive([1,2,3,4,5,6,7,8]));
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 7 kyu
 Friend or Foe?
 JavaScript:
 function friend(friends){
    return friends.filter(x => x.length === 4)
 }
-last monthRefactor
+2 months agoRefactor
 function friend(friends) {
     let realFriends = [];
     for (let i = 0; i < friends.length; i++) {
@@ -718,7 +966,7 @@ function friend(friends) {
     }
     return realFriends;
 }
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 function friend(friends){
     let realFriends = [];
     for (let i = 0; i < friends.length; i++) {
@@ -743,7 +991,7 @@ function century(year) {
      }
     }
   }
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 function century(year) {
     let x = 100;
     for (let i = 0; i < 100000000; i += 100) {
@@ -762,7 +1010,7 @@ function arrayPlusArray(arr1, arr2) {
   const sumArr2 = arr2.reduce((a,b)=> a+b)
   return sumArr1+sumArr2
 }
-last monthRefactor
+2 months agoRefactor
 function arrayPlusArray(arr1, arr2) {
     let sum1 = 0;
     let sum2 = 0;
@@ -786,7 +1034,7 @@ function hero(bullets, dragons){
 }
 
 hero(10,5)
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 function hero(bullets, dragons){
   if (bullets / dragons >= 2) {
         return true;
@@ -794,7 +1042,7 @@ function hero(bullets, dragons){
         return false;
   }
 }
-last monthRefactor
+2 months agoRefactor
 function hero(bullets, dragons){
        if (bullets >= dragons * 2) {
            return true;
@@ -810,7 +1058,7 @@ function maps(x) {
     return x.map(n => n*2)
 }
 
-last monthRefactor
+2 months agoRefactor
 function maps(x){
     let newArr = [];
     x.forEach(element => {
@@ -820,7 +1068,7 @@ function maps(x){
 }
 
 console.log(maps([1, 2, 4]));
-last monthRefactorDiscuss
+2 months agoRefactorDiscuss
 function maps(arr){
     
 const map1 = arr.map(a => a * 2);
@@ -1066,7 +1314,7 @@ class SmallestIntegerFinder {
        
     }
   }
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 class SmallestIntegerFinder {
     findSmallestInt(args) {
         
@@ -1074,7 +1322,7 @@ class SmallestIntegerFinder {
        
     }
   }
-10 months agoRefactor
+11 months agoRefactor
 8 kyu
 Is n divisible by x and y?
 JavaScript:
@@ -1095,7 +1343,7 @@ function isDivisible(n, x, y) {
       return false;
   }
 }
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 8 kyu
 Remove String Spaces
 JavaScript:
@@ -1109,7 +1357,7 @@ function noSpace(x){
     return x.replace(/ /g, '');
   }
   console.log(noSpace('this is a string'));
-8 months agoRefactor
+9 months agoRefactor
 function noSpace(x){
     return x.replace(/ /g, '');
   }
@@ -1214,7 +1462,7 @@ function getPlanetName(id){
   
   return name;
 }
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 8 kyu
 Enumerable Magic #3 - Does My List Include This?
 JavaScript:
@@ -1279,11 +1527,11 @@ JavaScript:
 function multiply(a, b){
   return a * b
 }
-10 months agoRefactor
+11 months agoRefactor
 function multiply(a, b){
  return a * b
 }
-10 months agoRefactor
+11 months agoRefactor
 function multiply(a, b){
   return a * b;
 }
@@ -1300,7 +1548,7 @@ function makeNegative(num) {
   }
 
   console.log(makeNegative(2));
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 8 kyu
 Jenny's secret message
 JavaScript:
@@ -1312,7 +1560,7 @@ function greet(name){
       return "Hello, " + name + "!";
   }
 }
-10 months agoRefactorDiscuss
+11 months agoRefactorDiscuss
 7 kyu
 Vowel Count
 JavaScript:
@@ -1352,7 +1600,7 @@ function getCount(text) {
         
     
 getCount('laurentiu');
-10 months agoRefactor
+11 months agoRefactor
 8 kyu
 Even or Odd
 JavaScript:
@@ -1367,5 +1615,4 @@ function even_or_odd(number) {
   }
 
   console.log(even_or_odd(0));
-  
-  */
+*/
