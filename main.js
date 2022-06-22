@@ -219,6 +219,7 @@ function isIsogram(str){
 10 days agoRefactorDiscuss
 7 kyu
 List Filtering
+
 JavaScript:
 function filter_list(l) {
   return l.filter(x=> typeof(x) === "number");
@@ -777,6 +778,7 @@ function howMuchILoveYou(nbPetals) {
     return "not at all"
   }   
 }
+
 28 days agoRefactorDiscuss
 8 kyu
 Count of positives / sum of negatives
@@ -1599,7 +1601,7 @@ function getCount(text) {
   }
         
     
-getCount('laurentiu');
+getCount('exercitiu');
 11 months agoRefactor
 8 kyu
 Even or Odd
